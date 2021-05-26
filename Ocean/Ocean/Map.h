@@ -10,6 +10,7 @@ public:
 	void setSizeMap(int, int);
 	void createBorders();
 	void printMap() const;
+	void addStone(int);
 
 private:
 	Cell** cells;

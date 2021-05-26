@@ -4,6 +4,9 @@ using std::endl;
 
 #include "Map.h"
 
+#include <ctime>
+#include <cstdlib>
+
 int i = 0, j = 0;
 
 Map::Map(int n, int m) 
@@ -48,4 +51,13 @@ void Map::createBorders()
 	for (i = 1; i < column-1; i++)
 		cells[row-1][i].setObject(typeObject::STONE);
 
+}
+
+void Map::addStone(int number)
+{
+	srand(time(NULL));
+	for (i = 0; i < number; i++)
+	{
+		cells[1 + rand() % (row-2)][1 + rand() % (column-2)].setObject(typeObject::STONE);
+	}
 }
