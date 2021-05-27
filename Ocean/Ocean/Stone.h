@@ -4,10 +4,6 @@
 class Stone : public Object
 {
 public:
-	Stone();
+	Stone(int = 0, char = 0);
 	~Stone();
-	void setLive(int);
-	void printMe();
-private:
-	int live;
 };

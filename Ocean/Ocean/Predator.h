@@ -4,10 +4,11 @@
 class Predator : public Object
 {
 public:
-	Predator();
+	Predator(int = 0, char = 0, int = 0);
 	~Predator();
-	void setLive(int);
-	void printMe();
+	void setHunger(int);
+	int getHunger() const;
+
 private:
-	int live;
+	int hunger;
 }; 

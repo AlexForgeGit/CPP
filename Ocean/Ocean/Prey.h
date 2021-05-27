@@ -4,10 +4,6 @@
 class Prey : public Object
 {
 public:
-	Prey();
-	~Prey() ;
-	void setLive(int);
-	void printMe();
-private:
-	int live;
+	Prey(int = 0, char = 0);
+	~Prey();
 }; 

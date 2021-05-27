@@ -3,22 +3,9 @@ using std::cout;
 
 #include "Prey.h"
 
-Prey::Prey()
-{
-	setLive(30);
-}
+Prey::Prey(int l, char s) : Object(l, s) {};
 
 Prey::~Prey()
 {
-	live = 0;
-}
-
-void Prey::setLive(int l)
-{
-	live = l;
-}
-
-void Prey::printMe()
-{
-	cout << "P";
+	Object::~Object();
 }

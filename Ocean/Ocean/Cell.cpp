@@ -22,23 +22,23 @@ void Cell::setObject(typeObject typeObj)
 	switch (typeObj)
 	{
 	case typeObject::EMPTY:
-		obj = new Object();
+		obj = new Object(0, '.');
 		break;
 	case typeObject::STONE:
-		obj = new Stone();
+		obj = new Stone(30, '*');
 		break;
 	case typeObject::PREY:
-		obj = new Prey();
+		obj = new Prey(10, 'o');
 		break;
 	case typeObject::PREDATOR:
-		obj = new Predator();
+		obj = new Predator(10, 'X', 5);
 		break;
 	default:
 		break;
 	};
 }
 
-void Cell::printObject()
+char Cell::getObject() const
 {
-	obj->printMe();
+	return obj->getSymbol();
 }

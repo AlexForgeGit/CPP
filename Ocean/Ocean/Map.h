@@ -11,6 +11,8 @@ public:
 	void createBorders();
 	void printMap() const;
 	void addStone(int);
+	void addPrey(int);
+	void addPredator(int);
 
 private:
 	Cell** cells;

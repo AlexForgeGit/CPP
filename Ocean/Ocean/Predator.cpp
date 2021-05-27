@@ -3,23 +3,23 @@ using std::cout;
 
 #include "Predator.h"
 
-Predator::Predator()
+Predator::Predator(int l, char s, int h) : Object(l, s)
 {
-	setLive(30);
+	setHunger(h);
 }
 
 Predator::~Predator()
 {
-	live = 0;
+	Object::~Object();
+	hunger = 0;
 }
 
-void Predator::setLive(int l)
+void Predator::setHunger(int h)
 {
-	live = l;
+	hunger = h;
 }
 
-void Predator::printMe()
+int Predator::getHunger() const
 {
-	cout << "†";
+	return hunger;
 }
-

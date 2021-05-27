@@ -8,6 +8,7 @@ using std::endl;
 #include <cstdlib>
 
 int i = 0, j = 0;
+int x = 0, y = 0;
 
 Map::Map(int n, int m) 
 {
@@ -35,7 +36,7 @@ void Map::printMap() const
 	for (i = 0; i < row; i++)
 	{
 		for (j = 0; j < column; j++)
-			cells[i][j].printObject();
+			cout << cells[i][j].getObject();
 		cout << endl;
 	}
 }
@@ -50,14 +51,55 @@ void Map::createBorders()
 		cells[0][i].setObject(typeObject::STONE);
 	for (i = 1; i < column-1; i++)
 		cells[row-1][i].setObject(typeObject::STONE);
-
 }
 
 void Map::addStone(int number)
 {
 	srand(time(NULL));
-	for (i = 0; i < number; i++)
+	for (i = 0; i < number;)
 	{
-		cells[1 + rand() % (row-2)][1 + rand() % (column-2)].setObject(typeObject::STONE);
+		int x = 1 + rand() % (row - 2);
+		int y = 1 + rand() % (column - 2);
+
+		if (cells[x][y].getObject() == '.')
+		{
+			cells[x][y].setObject(typeObject::STONE);
+			i++;
+		}
+
+	}
+}
+
+void Map::addPrey(int number)
+{
+	srand(time(NULL));
+	for (i = 0; i < number;)
+	{
+		int x = 1 + rand() % (row - 2);
+		int y = 1 + rand() % (column - 2);
+
+		if (cells[x][y].getObject() == '.')
+		{
+			cells[x][y].setObject(typeObject::PREY);
+			i++;
+		}
+
+	}
+}
+
+void Map::addPredator(int number)
+{
+	srand(time(NULL));
+	for (i = 0; i < number;)
+	{
+		int x = 1 + rand() % (row - 2);
+		int y = 1 + rand() % (column - 2);
+
+		if (cells[x][y].getObject() == '.')
+		{
+			cells[x][y].setObject(typeObject::PREDATOR);
+			i++;
+		}
+
 	}
 }

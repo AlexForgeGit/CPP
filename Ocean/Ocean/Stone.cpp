@@ -3,22 +3,9 @@ using std::cout;
 
 #include "Stone.h"
 
-Stone::Stone()
-{
-	setLive(30);
-}
+Stone::Stone(int l, char s) : Object(l, s) {};
 
 Stone::~Stone()
 {
-	live = 0;
-}
-
-void Stone::setLive(int l)
-{
-	live = l;
-}
-
-void Stone::printMe()
-{
-	cout << "*";
+	Object::~Object();
 }

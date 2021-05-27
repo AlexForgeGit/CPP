@@ -16,7 +16,8 @@ public:
 	Cell();
 	~Cell();
 	void setObject(typeObject);
-	void printObject();
+	char getObject() const;
+
 private:
 	Object* obj;
 };
