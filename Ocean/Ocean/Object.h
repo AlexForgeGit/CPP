@@ -9,7 +9,7 @@ public:
 	int getLive() const;
 	void setSymbol(char);
 	char getSymbol() const;
-
+	void killMe();
 private:
 	int live;
 	char symbol;

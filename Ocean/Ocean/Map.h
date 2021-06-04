@@ -10,9 +10,10 @@ public:
 	void setSizeMap(int, int);
 	void createBorders();
 	void printMap() const;
-	void addStone(int);
-	void addPrey(int);
-	void addPredator(int);
+	void clear();
+	void addObject(int, typeObject);
+	void step();
+	void run();
 
 private:
 	Cell** cells;

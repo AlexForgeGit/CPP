@@ -6,6 +6,7 @@ using std::endl;
 
 #include <ctime>
 #include <cstdlib>
+#include <Windows.h>
 
 int i = 0, j = 0;
 int x = 0, y = 0;
@@ -41,6 +42,11 @@ void Map::printMap() const
 	}
 }
 
+void Map::clear()
+{
+	system("cls");
+}
+
 void Map::createBorders()
 {
 	for (i = 0; i < row; i++)
@@ -53,7 +59,7 @@ void Map::createBorders()
 		cells[row-1][i].setObject(typeObject::STONE);
 }
 
-void Map::addStone(int number)
+void Map::addObject(int number, typeObject typeObj)
 {
 	srand(time(NULL));
 	for (i = 0; i < number;)
@@ -63,43 +69,46 @@ void Map::addStone(int number)
 
 		if (cells[x][y].getObject() == '.')
 		{
-			cells[x][y].setObject(typeObject::STONE);
+			cells[x][y].setObject(typeObj);
 			i++;
 		}
-
 	}
 }
 
-void Map::addPrey(int number)
+
+void Map::step()
 {
 	srand(time(NULL));
-	for (i = 0; i < number;)
-	{
-		int x = 1 + rand() % (row - 2);
-		int y = 1 + rand() % (column - 2);
-
-		if (cells[x][y].getObject() == '.')
+	for (i = 0; i < row; i++)
+		for (j = 0; j < column; j++)
 		{
-			cells[x][y].setObject(typeObject::PREY);
-			i++;
+			switch (rand() % 4)
+			{
+			case 0:
+				cells[i][j].moveObject(cells[i][j], cells[i + 1][j]);
+				break;
+			case 1:
+				cells[i][j].moveObject(cells[i][j], cells[i - 1][j]);
+				break;
+			case 2:
+				cells[i][j].moveObject(cells[i][j], cells[i][j + 1]);
+				break;
+			case 3:
+				cells[i][j].moveObject(cells[i][j], cells[i][j - 1]);
+				break;
+			default:
+				break;
+			}
 		}
-
-	}
 }
 
-void Map::addPredator(int number)
+void Map::run()
 {
-	srand(time(NULL));
-	for (i = 0; i < number;)
+	for (int i = 0; i < 100; i++)
 	{
-		int x = 1 + rand() % (row - 2);
-		int y = 1 + rand() % (column - 2);
-
-		if (cells[x][y].getObject() == '.')
-		{
-			cells[x][y].setObject(typeObject::PREDATOR);
-			i++;
-		}
-
+		clear();
+		step();
+		printMap();	
+		Sleep(1000);
 	}
 }

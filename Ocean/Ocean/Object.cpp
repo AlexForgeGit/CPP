@@ -34,3 +34,8 @@ char Object::getSymbol() const
 {
 	return symbol;
 }
+
+void Object::killMe()
+{
+	delete this;
+}

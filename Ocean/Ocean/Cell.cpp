@@ -42,3 +42,17 @@ char Cell::getObject() const
 {
 	return obj->getSymbol();
 }
+
+void Cell::deleteObject()
+{
+	obj->killMe();
+}
+
+void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
+{
+	if ((cellBasic.getObject() == 'o' || cellBasic.getObject() == 'X') && cellSecondary.getObject() == '.')
+	{
+		cellSecondary = cellBasic;
+		cellBasic.setObject(typeObject::EMPTY);
+	}
+}
