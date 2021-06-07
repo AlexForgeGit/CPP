@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using std::cout;
 using std::endl;
 
@@ -79,22 +79,22 @@ void Map::addObject(int number, typeObject typeObj)
 void Map::step()
 {
 	srand(time(NULL));
-	for (i = 0; i < row; i++)
-		for (j = 0; j < column; j++)
+	for (i = 1; i < row-1; i++)											//Range without borders on "i"
+		for (j = 1; j < column-1; j++)									//Range without borders on "j"
 		{
-			switch (rand() % 4)
+			switch (rand() % 4)											//Selection of a random direction of movement
 			{
 			case 0:
-				cells[i][j].moveObject(cells[i][j], cells[i + 1][j]);
+				cells[i][j].moveObject(cells[i][j], cells[i + 1][j]);	//Move ↑
 				break;
 			case 1:
-				cells[i][j].moveObject(cells[i][j], cells[i - 1][j]);
+				cells[i][j].moveObject(cells[i][j], cells[i - 1][j]);	//Move ↓
 				break;
 			case 2:
-				cells[i][j].moveObject(cells[i][j], cells[i][j + 1]);
+				cells[i][j].moveObject(cells[i][j], cells[i][j + 1]);	//Move →
 				break;
 			case 3:
-				cells[i][j].moveObject(cells[i][j], cells[i][j - 1]);
+				cells[i][j].moveObject(cells[i][j], cells[i][j - 1]);	//Move ←
 				break;
 			default:
 				break;
@@ -102,13 +102,35 @@ void Map::step()
 		}
 }
 
+void Map::updateMovement()
+{
+	for (i = 1; i < row - 1; i++)											//Range without borders on "i"
+		for (j = 1; j < column - 1; j++)									//Range without borders on "j"
+		{
+			cells[i][j].youCanMoveAgain();
+		}
+}
+
+void Map::statusCheck()
+{
+	for (i = 1; i < row - 1; i++)											//Range without borders on "i"
+		for (j = 1; j < column - 1; j++)									//Range without borders on "j"
+		{
+			cells[i][j].objectState();
+		}
+}
+
 void Map::run()
 {
 	for (int i = 0; i < 100; i++)
 	{
-		clear();
 		step();
 		printMap();	
+		cout << "ROUND : " << i << endl;
+		(*cells)->statistics();
+		updateMovement();
+		statusCheck();
 		Sleep(1000);
+		clear();
 	}
 }

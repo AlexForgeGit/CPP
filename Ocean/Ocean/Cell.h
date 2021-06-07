@@ -18,7 +18,10 @@ public:
 	void setObject(typeObject);
 	char getObject() const;
 	void moveObject(Cell &, Cell &);
+	void youCanMoveAgain();
 	void deleteObject();
+	void objectState();
+	void statistics();
 private:
 	Object* obj;
 };

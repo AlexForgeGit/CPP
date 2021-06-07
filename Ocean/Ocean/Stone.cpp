@@ -1,11 +1,18 @@
-#include <iostream>
-using std::cout;
-
 #include "Stone.h"
 
-Stone::Stone(int l, char s) : Object(l, s) {};
+int Stone::countStone = 0;
+
+Stone::Stone(int l, char c, bool cm) : Object(l, c, cm) 
+{
+	++countStone;
+};
 
 Stone::~Stone()
 {
-	Object::~Object();
+	--countStone;
+}
+
+int Stone::getCountStone()
+{
+	return countStone;
 }

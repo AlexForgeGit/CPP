@@ -1,11 +1,29 @@
-#include <iostream>
-using std::cout;
-
 #include "Prey.h"
 
-Prey::Prey(int l, char s) : Object(l, s) {};
+int Prey::countPrey = 0;
+
+Prey::Prey(int l, char c, int r, bool cm) : Object(l, c, cm) 
+{
+	setReproduction(r);
+	++countPrey;
+};
 
 Prey::~Prey()
 {
-	Object::~Object();
+	--countPrey;
+}
+
+void Prey::setReproduction(int r)
+{
+	reproduct = r;
+}
+
+int Prey::getRepruduction() const
+{
+	return reproduct;
+}
+
+int Prey::getCountPrey()
+{
+	return countPrey;
 }

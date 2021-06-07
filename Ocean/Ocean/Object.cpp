@@ -1,18 +1,24 @@
-#include <iostream>
-using std::cout;
-
 #include "Object.h"
 
-Object::Object(int l, char c)
+int Object::countObject = 0;
+
+Object::Object(int l, char c, bool cm)
 {
 	setLive(l);
 	setSymbol(c);
+	setCanMove(cm);
+
+	++countObject;
 }
 
 Object::~Object()
 {
-	live = 0;
-	symbol = 0;
+	--countObject;
+}
+
+int Object::getCountObject()
+{
+	return countObject;
 }
 
 void Object::setLive(int l)
@@ -33,6 +39,16 @@ void Object::setSymbol(char c)
 char Object::getSymbol() const
 {
 	return symbol;
+}
+
+void Object::setCanMove(bool cm)
+{
+	canMove = cm;
+}
+
+bool Object::getCanMove() const
+{
+	return canMove;
 }
 
 void Object::killMe()

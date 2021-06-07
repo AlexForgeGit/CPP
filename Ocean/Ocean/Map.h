@@ -13,6 +13,8 @@ public:
 	void clear();
 	void addObject(int, typeObject);
 	void step();
+	void updateMovement();
+	void statusCheck();
 	void run();
 
 private:

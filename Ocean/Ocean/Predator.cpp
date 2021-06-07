@@ -1,17 +1,16 @@
-#include <iostream>
-using std::cout;
-
 #include "Predator.h"
 
-Predator::Predator(int l, char s, int h) : Object(l, s)
+int Predator::countPredator = 0;
+
+Predator::Predator(int l, char c, int h, bool cm) : Object(l, c, cm)
 {
 	setHunger(h);
+	++countPredator;
 }
 
 Predator::~Predator()
 {
-	Object::~Object();
-	hunger = 0;
+	--countPredator;
 }
 
 void Predator::setHunger(int h)
@@ -22,4 +21,9 @@ void Predator::setHunger(int h)
 int Predator::getHunger() const
 {
 	return hunger;
+}
+
+int Predator::getCountPredator()
+{
+	return countPredator;
 }
