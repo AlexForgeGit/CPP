@@ -22,6 +22,7 @@ public:
 	void deleteObject();
 	void objectState();
 	void statistics();
+
 private:
 	Object* obj;
 };

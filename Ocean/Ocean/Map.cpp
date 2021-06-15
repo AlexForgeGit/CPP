@@ -8,15 +8,14 @@ using std::endl;
 #include <cstdlib>
 #include <Windows.h>
 
-int i = 0, j = 0;
-int x = 0, y = 0;
+int i, j;
 
 Map::Map(int n, int m) 
 {
 	setSizeMap(n, m);
-	cells = new Cell * [n];
-	for (i = 0; i < n; i++)
-		cells[i] = new Cell[m];
+	cells = new Cell * [row];
+	for (i = 0; i < row; i++)
+		cells[i] = new Cell[column];
 }
 
 Map::~Map()
@@ -67,7 +66,7 @@ void Map::addObject(int number, typeObject typeObj)
 		int x = 1 + rand() % (row - 2);
 		int y = 1 + rand() % (column - 2);
 
-		if (cells[x][y].getObject() == '.')
+		if (cells[x][y].getObject() == '.')								//If the place is free, take it with a new object
 		{
 			cells[x][y].setObject(typeObj);
 			i++;
@@ -107,7 +106,7 @@ void Map::updateMovement()
 	for (i = 1; i < row - 1; i++)											//Range without borders on "i"
 		for (j = 1; j < column - 1; j++)									//Range without borders on "j"
 		{
-			cells[i][j].youCanMoveAgain();
+			cells[i][j].youCanMoveAgain();									//give the opportunity to move again
 		}
 }
 
@@ -122,11 +121,11 @@ void Map::statusCheck()
 
 void Map::run()
 {
-	for (int i = 0; i < 100; i++)
+	for (auto round = 0; round < 100; round++)
 	{
+		printMap();
 		step();
-		printMap();	
-		cout << "ROUND : " << i << endl;
+		cout << "ROUND : " << round << endl;
 		(*cells)->statistics();
 		updateMovement();
 		statusCheck();

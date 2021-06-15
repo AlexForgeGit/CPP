@@ -18,7 +18,7 @@ void Prey::setReproduction(int r)
 	reproduct = r;
 }
 
-int Prey::getRepruduction() const
+int Prey::getReproduction() const
 {
 	return reproduct;
 }

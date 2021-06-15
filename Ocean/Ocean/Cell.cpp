@@ -8,6 +8,10 @@ using std::endl;
 #include "Prey.h"
 #include "Predator.h"
 
+
+#define REPRODUCT 5
+#define HUNGER 15
+
 Cell::Cell()
 {
 	setObject(typeObject::EMPTY);
@@ -26,13 +30,16 @@ void Cell::setObject(typeObject typeObj)
 		obj = new Object(0, '.');
 		break;
 	case typeObject::STONE:
+		obj->killMe();
 		obj = new Stone(30, '*');
 		break;
 	case typeObject::PREY:
-		obj = new Prey(30, 'o', 5);
+		obj->killMe();
+		obj = new Prey(30, 'o', REPRODUCT);
 		break;
 	case typeObject::PREDATOR:
-		obj = new Predator(30, 'X', 15);
+		obj->killMe();
+		obj = new Predator(30, 'X', HUNGER);
 		break;
 	default:
 		break;
@@ -59,8 +66,10 @@ void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
 			cellSecondary.deleteObject();
 			cellSecondary = cellBasic;																//eat prey
 			cellSecondary.obj->setCanMove(false);													//forbed to move this turn
-			cellSecondary.obj->setHunger(cellSecondary.obj->getHunger() + 10);						//maximum satiety
+			cellSecondary.obj->setHunger(cellSecondary.obj->getHunger() + HUNGER);					//maximum satiety
 			cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+
+
 			cellBasic.setObject(typeObject::EMPTY);
 		}
 		if (cellSecondary.obj->getSymbol() == '.' && cellBasic.obj->getCanMove() == true)			//if position is free and predator can move
@@ -70,6 +79,7 @@ void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
 			cellSecondary.obj->setCanMove(false);													//forbed to move this turn
 			cellSecondary.obj->setHunger(cellSecondary.obj ->getHunger() - 1);						//increase hunger
 			cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+
 
 			cellBasic.setObject(typeObject::EMPTY);
 		}
@@ -82,13 +92,22 @@ void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
 	case 'o':
 		if (cellSecondary.obj->getSymbol() == '.' && cellBasic.obj->getCanMove() == true)			//if position is free and prey can move
 		{
-			cellSecondary.deleteObject();
-			cellSecondary = cellBasic;																//take this position
-			cellSecondary.obj->setCanMove(false);													//forbed to move this turn
-			cellSecondary.obj->setReproduction(cellSecondary.obj->getReproduction() - 1);			//increase reproduction
-			cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
-
-			cellBasic.setObject(typeObject::EMPTY);
+			if (cellBasic.obj->getReproduction() <= 0)											    //check prey breeding
+			{
+				cellBasic.obj->setCanMove(false);													//forbed to move this turn
+				cellBasic.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+				cellBasic.obj->setReproduction(REPRODUCT);
+				cellSecondary.setObject(typeObject::PREY);
+			}
+			else
+			{
+				cellSecondary.deleteObject();
+				cellSecondary = cellBasic;																//take this position
+				cellSecondary.obj->setCanMove(false);													//forbed to move this turn
+				cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+				cellSecondary.obj->setReproduction(cellSecondary.obj->getReproduction() - 1);			//increase reproduction
+				cellBasic.setObject(typeObject::EMPTY);
+			}
 		}
 		if (cellSecondary.obj->getSymbol() == '*' && cellBasic.obj->getCanMove() == true)
 		{
@@ -115,17 +134,16 @@ void Cell::objectState()
 		if (obj->getSymbol() == 'X' && obj->getHunger() == 0)
 		{
 			obj->killMe();
-			obj = new Object(0, '.');
+			obj = new Object('.');
 		}
 
 		if (obj->getLive() == 0)
 		{
 			obj->killMe();
-			obj = new Object(0, '.');
+			obj = new Object('.');
 		}
 	}
 }
-
 
 void Cell::statistics()
 {

@@ -4,10 +4,10 @@
 
 int main()
 {
-	Map ocean(19, 50);
+	Map ocean(15, 30);
 	ocean.createBorders();
-	ocean.addObject(15, typeObject::STONE);
-	ocean.addObject(50, typeObject::PREY);
+	ocean.addObject(0, typeObject::STONE);
+	ocean.addObject(10, typeObject::PREY);
 	ocean.addObject(10, typeObject::PREDATOR);
 	ocean.run();
 
