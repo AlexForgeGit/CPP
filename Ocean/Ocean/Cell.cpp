@@ -27,7 +27,7 @@ void Cell::setObject(typeObject typeObj)
 	switch (typeObj)
 	{
 	case typeObject::EMPTY:
-		obj = new Object(0, '.');
+		obj = new Object(0,'.');
 		break;
 	case typeObject::STONE:
 		obj->killMe();
@@ -63,24 +63,18 @@ void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
 	case 'X':																						//Object predator
 		if (cellSecondary.obj->getSymbol() == 'o' && cellBasic.obj->getCanMove() == true)		    //if prey is encountered and predator can move
 		{		
-			cellSecondary.deleteObject();
-			cellSecondary = cellBasic;																//eat prey
-			cellSecondary.obj->setCanMove(false);													//forbed to move this turn
-			cellSecondary.obj->setHunger(cellSecondary.obj->getHunger() + HUNGER);					//maximum satiety
-			cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+			cellSecondary.obj->killMe();
+			cellSecondary.obj = new Predator(cellBasic.obj->getLive() - 1, cellBasic.obj->getSymbol(), cellBasic.obj->getHunger() + HUNGER, false);
 
-
+			cellBasic.deleteObject();
 			cellBasic.setObject(typeObject::EMPTY);
 		}
 		if (cellSecondary.obj->getSymbol() == '.' && cellBasic.obj->getCanMove() == true)			//if position is free and predator can move
 		{
-			cellSecondary.deleteObject();
-			cellSecondary = cellBasic;																//take this position
-			cellSecondary.obj->setCanMove(false);													//forbed to move this turn
-			cellSecondary.obj->setHunger(cellSecondary.obj ->getHunger() - 1);						//increase hunger
-			cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
+			cellSecondary.obj->killMe();
+			cellSecondary.obj = new Predator(cellBasic.obj->getLive() - 1, cellBasic.obj->getSymbol(), cellBasic.obj->getHunger() - 1, false);
 
-
+			cellBasic.deleteObject();
 			cellBasic.setObject(typeObject::EMPTY);
 		}
 		if (cellSecondary.obj->getSymbol() == '*' && cellBasic.obj->getCanMove() == true)
@@ -97,15 +91,15 @@ void Cell::moveObject(Cell& cellBasic, Cell& cellSecondary)
 				cellBasic.obj->setCanMove(false);													//forbed to move this turn
 				cellBasic.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
 				cellBasic.obj->setReproduction(REPRODUCT);
+
 				cellSecondary.setObject(typeObject::PREY);
 			}
 			else
 			{
-				cellSecondary.deleteObject();
-				cellSecondary = cellBasic;																//take this position
-				cellSecondary.obj->setCanMove(false);													//forbed to move this turn
-				cellSecondary.obj->setLive(cellSecondary.obj->getLive() - 1);							//age
-				cellSecondary.obj->setReproduction(cellSecondary.obj->getReproduction() - 1);			//increase reproduction
+				cellSecondary.obj->killMe();
+				cellSecondary.obj = new Prey(cellBasic.obj->getLive() - 1, cellBasic.obj->getSymbol(), cellBasic.obj->getReproduction() - 1, false);
+
+				cellBasic.deleteObject();
 				cellBasic.setObject(typeObject::EMPTY);
 			}
 		}
