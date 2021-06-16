@@ -128,13 +128,13 @@ void Cell::objectState()
 		if (obj->getSymbol() == 'X' && obj->getHunger() == 0)
 		{
 			obj->killMe();
-			obj = new Object('.');
+			obj = new Object(0,'.');
 		}
 
 		if (obj->getLive() == 0)
 		{
 			obj->killMe();
-			obj = new Object('.');
+			obj = new Object(0,'.');
 		}
 	}
 }
