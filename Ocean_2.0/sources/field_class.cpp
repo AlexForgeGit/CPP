@@ -15,6 +15,9 @@ Field::Field(std::size_t row_count, std::size_t column_count) : row_count_(row_c
 			//Setting the coordinates and object type in each cell
 			simulation_field_[i].insert(std::make_pair(std::make_pair(i , j), ObjectType::EMPTY));
 		}
+
+	//Filling the vector pf free cells
+	FindAllFreeCells();
 }
 
 
