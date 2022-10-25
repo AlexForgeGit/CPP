@@ -6,5 +6,5 @@ project(Ocean_2.0)
 include_directories(headers)
 
 
-add_executable()
+add_executable(Ocean sources/field_class.cpp sources/objects_class.cpp sources/fishes_class.cpp) 
 

@@ -1,3 +1,8 @@
+/*
+	Класс для отображения в консоли поведения объектов в рамках матрицы m на n,
+	с содержанием и предоставлением информации о не занятых ячейках.
+*/
+
 #pragma once
 
 #include <vector>
@@ -10,6 +15,9 @@ class Field
 public:
 	//Create an instance of a singleton class
 	static Field& Instance(std::size_t, std::size_t);
+
+	const std::size_t GetRowCount() { return row_count_; }
+	const std::size_t GetColumnCount() { return column_count_; }
 
 	void PrintField();
 
