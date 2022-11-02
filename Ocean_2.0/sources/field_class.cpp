@@ -41,12 +41,20 @@ void Field::PrintField()
 					std::cout << "_ ";
 					break;
 
-				case ObjectType::PREY:
+				case ObjectType::PREY_MALE:
 					std::cout << "Q ";
 					break;
 
-				case ObjectType::PREDATOR:
+				case ObjectType::PREY_FEMALE:
+					std::cout << "O ";
+					break;
+
+				case ObjectType::PREDATOR_MALE:
 					std::cout << "P ";
+					break;
+
+				case ObjectType::PREDATOR_FEMALE:
+					std::cout << "p ";
 					break;
 
 				case ObjectType::BARRIER:

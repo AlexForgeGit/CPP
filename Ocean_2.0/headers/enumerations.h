@@ -1,7 +1,7 @@
 #pragma once
 
-enum class ObjectType 	{ EMPTY, PREY, PREDATOR, BARRIER, SEAWEED};
+enum class ObjectType 	{ EMPTY, PREY_MALE, PREY_FEMALE, PREDATOR_MALE, PREDATOR_FEMALE, BARRIER, SEAWEED };
 
-enum class Command 		{ INACTION, KILL_ME, EAT_IT, MOVE_ME, PAIRING};
+enum class Command		{ INACTION, KILL_ME, EAT_IT, EAT_SUCCES, MOVE_ME, MOVE_SUCCES, PAIRING, PAIRING_SUCCES, CHILD_BIRTH, CHILD_BIRTH_SUCCES };
 
-enum class GenderType 	{ MALE, FEMALE };
+enum class GenderType	{ MALE, FEMALE };

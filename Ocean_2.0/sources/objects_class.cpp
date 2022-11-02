@@ -2,6 +2,10 @@
 
 #include "objects_class.h"
 
+void Objects::Wait()
+{
+	SetCommand( std::make_pair( Command::INACTION, GetCoord() ) );
+}
 
 bool Objects::FlipCoin()
 {
@@ -23,15 +27,20 @@ bool Objects::DieOldAge()
 		return false;
 }
 
-std::pair<Command, std::pair<int, int>> Objects::ActionRequest(Field& field) 
+void Objects::KillMe()
 {
-	//Aging age + 1
-	SetAge( ++age_ );
+	SetCommand( std::make_pair( Command::KILL_ME, GetCoord() ) );
+}
 
+void Objects::ActionRequest(Field& field) 
+{
 	//If it`s time to die, return command delete this object
 	if (DieOldAge())
-		return std::make_pair(Command::KILL_ME, GetCoord());
+		KillMe();
+}
 
-	//Return command inaction
-	return std::make_pair(Command::INACTION, GetCoord());
+void Objects::Action(Command command)
+{	
+	//Aging age + 1; 
+	SetAge( ++age_ ); 
 }

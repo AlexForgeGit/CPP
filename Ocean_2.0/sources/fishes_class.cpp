@@ -34,7 +34,6 @@ void Fishes::LookEast(Field& field)
 		temp_coord.second = 0;
 
 	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
-
 }
 
 void Fishes::LookSouth(Field& field)
@@ -59,6 +58,7 @@ void Fishes::LookVest(Field& field)
 			temp_coord.second = field.GetColumnCount();
 			temp_coord.second--;
 		}
+
 	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
 }
 
@@ -76,34 +76,62 @@ void Fishes::LookAround(Field& field)
 }
 
 
-std::pair<Command, std::pair<int, int>> Fishes::Move(std::pair<int, int> coord)
+void Fishes::Move(std::pair<int, int> coord)
 {
-	return std::make_pair( Command::MOVE_ME, coord);
+	SetCommand( std::make_pair( Command::MOVE_ME, coord ) );
 }
 
-std::pair<Command, std::pair<int, int>> Fishes::Eat(std::pair<int, int> coord)
+void Fishes::Eat(std::pair<int, int> coord)
 {
-	return std::make_pair( Command::EAT_IT, coord);
+	SetCommand( std::make_pair( Command::EAT_IT, coord ) );
 }
 
-std::pair<Command, std::pair<int, int>> Fishes::Pairing(std::pair<int, int> coord)
+void Fishes::Pairing(std::pair<int, int> coord)
 {
-	return std::make_pair( Command::PAIRING, coord);
+	SetCommand( std::make_pair( Command::PAIRING, coord ) );
 }
 
-std::pair<Command, std::pair<int, int>> Fishes::ActionRequest(Field& field)
+void Behavior()
 {
-	if( Objects::ActionRequest(field).first == Command::KILL_ME)
-		return std::make_pair(Command::KILL_ME, GetCoord());
-	else
+	auto obj_type = GetMemory().find( ObjectType::EMPTY); 
+
+	//If the fish sees an empty slot, set command move me
+	if ( obj_type != GetMemory().end() )
 	{
-		SetHunger( ++hunger_ );
+		SetCommand( std::make_pair( Command::MOVE_ME, obj_type->second ) );
+	}
+}
 
+void Fishes::ActionRequest(Field& field)
+{
+	//Die old age check;
+	Objects::ActionRequest(field);
+
+	//Unless the fish died of old age, continue to live
+	if( GetCommand().first == Command::INACTION )
+	{
 		//If the fish has not eaten for a long time, return command delete this object
 		if (DieHunger())
-			return std::make_pair(Command::KILL_ME, GetCoord());
-
-		//Return command inaction
-		return std::make_pair(Command::INACTION, GetCoord());
+			KillMe();
+		
+		else
+			Behavior();
 	}
+}
+
+void Fishes::Action(Command command)
+{	
+	//Aging age + 1; 
+	Objects::Action(command);
+
+	//Growing hunger
+	SetHunger( ++hunger_ );
+
+	//If hunger is quenched, set hunger 0
+	if (command.first == Command::EAT_SUCCES)
+		SetHunger(0);
+
+	//If move completed, set new coordinates
+	else if (command.first == Command::MOVE_SUCCES)
+		SetCoord(command.second);
 }
