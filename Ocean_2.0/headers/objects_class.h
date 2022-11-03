@@ -60,7 +60,7 @@ public:
 	virtual void ActionRequest(Field& field);
 
 	//Recieve a responce to a request and perform an action
-	virtual void Action(Command command); 
+	virtual void Action(std::pair<Command, std::pair<int, int>> command); 
 
 
 private:

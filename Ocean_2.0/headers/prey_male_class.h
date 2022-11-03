@@ -7,7 +7,7 @@ class PreyMale : public Prey, public Male
 {
 public:
 
-	PreyMale(std::pair<int, int> coord) : Fishes(coord, ObjectType::PREY_MALE), Male() {};
+	PreyMale(std::pair<int, int> coord) : Prey(coord, ObjectType::PREY_MALE), Male() {};
 
 	virtual ~PreyMale() {}
 

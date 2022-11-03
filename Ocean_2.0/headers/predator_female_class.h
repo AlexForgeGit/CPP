@@ -7,7 +7,7 @@ class PredatorFemale : public Predator, public Female
 {
 public:
 
-	PredatorFemale(std::pair<int, int> coord) : Fishes(coord, ObjectType::PREDATOR_FEMALE), Female() {};
+	PredatorFemale(std::pair<int, int> coord) : Predator(coord, ObjectType::PREDATOR_FEMALE), Female() {};
 
 	virtual ~PredatorFemale() {}
 
@@ -15,5 +15,5 @@ public:
 	virtual void Behavior() override;
 
 	//Recieve a responce to a request and perform an action
-	virtual void Action(Command command) override; 
+	virtual void Action(std::pair<Command, std::pair<int, int>> command) override; 
 };

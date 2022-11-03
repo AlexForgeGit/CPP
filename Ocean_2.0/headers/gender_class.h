@@ -2,11 +2,11 @@
 
 #include "fishes_class.h"
 
-class Gender : public virtual Fishes
+class Gender
 {
 public:
 
-	Gender(GenderType gender_type) : gender_type_(gender_type) {};
+	Gender(GenderType gender_type) : gender_type_(gender_type) {}
 
 	virtual ~Gender() {}
 	

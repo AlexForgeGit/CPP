@@ -39,7 +39,7 @@ void Objects::ActionRequest(Field& field)
 		KillMe();
 }
 
-void Objects::Action(Command command)
+void Objects::Action(std::pair<Command, std::pair<int, int>> command)
 {	
 	//Aging age + 1; 
 	SetAge( ++age_ ); 

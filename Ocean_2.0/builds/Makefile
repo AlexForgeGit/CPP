@@ -142,33 +142,6 @@ Ocean/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/build
 .PHONY : Ocean/fast
 
-sources/female_class.o: sources/female_class.cpp.o
-
-.PHONY : sources/female_class.o
-
-# target to build an object file
-sources/female_class.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/female_class.cpp.o
-.PHONY : sources/female_class.cpp.o
-
-sources/female_class.i: sources/female_class.cpp.i
-
-.PHONY : sources/female_class.i
-
-# target to preprocess a source file
-sources/female_class.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/female_class.cpp.i
-.PHONY : sources/female_class.cpp.i
-
-sources/female_class.s: sources/female_class.cpp.s
-
-.PHONY : sources/female_class.s
-
-# target to generate assembly for a file
-sources/female_class.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/female_class.cpp.s
-.PHONY : sources/female_class.cpp.s
-
 sources/field_class.o: sources/field_class.cpp.o
 
 .PHONY : sources/field_class.o
@@ -421,9 +394,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Ocean"
-	@echo "... sources/female_class.o"
-	@echo "... sources/female_class.i"
-	@echo "... sources/female_class.s"
 	@echo "... sources/field_class.o"
 	@echo "... sources/field_class.i"
 	@echo "... sources/field_class.s"

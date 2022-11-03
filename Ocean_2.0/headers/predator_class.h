@@ -2,7 +2,7 @@
 
 #include "fishes_class.h"
 
-class Predator: public virtual Fishes
+class Predator: public Fishes
 {
 public:
 	

@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Ocean.dir/sources/female_class.cpp.o"
   "CMakeFiles/Ocean.dir/sources/field_class.cpp.o"
   "CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o"
   "CMakeFiles/Ocean.dir/sources/objects_class.cpp.o"

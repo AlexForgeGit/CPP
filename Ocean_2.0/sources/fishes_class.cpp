@@ -91,7 +91,7 @@ void Fishes::Pairing(std::pair<int, int> coord)
 	SetCommand( std::make_pair( Command::PAIRING, coord ) );
 }
 
-void Behavior()
+void Fishes::Behavior()
 {
 	auto obj_type = GetMemory().find( ObjectType::EMPTY); 
 
@@ -119,7 +119,7 @@ void Fishes::ActionRequest(Field& field)
 	}
 }
 
-void Fishes::Action(Command command)
+void Fishes::Action(std::pair<Command, std::pair<int, int>> command)
 {	
 	//Aging age + 1; 
 	Objects::Action(command);

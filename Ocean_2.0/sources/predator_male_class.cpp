@@ -2,7 +2,7 @@
 
 void PredatorMale::Behavior()
 {	
-	auto obj_type = GetMemory().find( ObjectType::PredatorFemale );
+	auto obj_type = GetMemory().find( ObjectType::PREDATOR_FEMALE);
 
 	//If the male sees the female , set command pairing
 	if ( obj_type != GetMemory().end() )	
