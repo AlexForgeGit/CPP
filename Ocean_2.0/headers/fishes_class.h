@@ -12,6 +12,8 @@ public:
 	Fishes(std::pair<int, int> coord, ObjectType object_type) : Objects(Settings::OLD_AGE_FISH, coord, object_type), hunger_(0)
 	{}
 
+	virtual ~Fishes() {}
+
 	unsigned short GetHunger() { return hunger_; }
 	void SetHunger( const unsigned short hunger ) { hunger_ = hunger; }
 
@@ -25,23 +27,26 @@ public:
 	//Add to memory objects around me
 	void LookAround(Field& field);
 
-	const std::multimap<ObjectType, std::pair<int, int>>& GetMemory() { return memory_; }
+	std::multimap<ObjectType, std::pair<int, int>>& GetMemory() { return memory_; }
 
 	void ClearMemory() { memory_.clear(); }
 
+	
+	void Move(std::pair<int, int> coord);
 
-	std::pair<Command, std::pair<int, int>> Move(std::pair<int, int> coord);
+	void Eat(std::pair<int, int> coord);
 
-	std::pair<Command, std::pair<int, int>> Eat(std::pair<int, int> coord);
-
-	std::pair<Command, std::pair<int, int>> Pairing(std::pair<int, int> coord);
+	void Pairing(std::pair<int, int> coord);
 
 
 	//Makes decisions based on the enviroment
-	virtual std::pair<Command, std::pair<int, int>> Behavior() = 0;
+	virtual void Behavior();
 
 	//Send an action request to the control class
-	virtual std::pair<Command, std::pair<int, int>> ActionRequest(Field& field);
+	virtual void ActionRequest(Field& field) override;
+
+	//Recieve a responce to a request and perform an action
+	virtual void Action(std::pair<Command, std::pair<int, int>> command) override; 
 
 
 private:

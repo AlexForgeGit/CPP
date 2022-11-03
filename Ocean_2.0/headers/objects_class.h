@@ -13,10 +13,10 @@ class Objects
 {
 public:
 
-	Objects() = delete;
-
 	Objects(unsigned short old_age, std::pair<int, int> coord, ObjectType object_type) : age_(0), old_age_(old_age), coord_(coord), object_type_(object_type)
-	{}
+	{
+		Wait();
+	}
 
 	virtual ~Objects() {}
 
@@ -41,17 +41,26 @@ public:
 	ObjectType GetObjecType() { return object_type_; }
 
 
+	void SetCommand(std::pair<Command, std::pair<int, int>> command) { command_ = command; }
+
+	std::pair<Command, std::pair<int, int>> GetCommand() { return command_ ;}
+
+
+	void Wait();
+
 	//Coin toss adds a luck parameter
 	bool FlipCoin();
 
 	bool DieOldAge();
 
+	void KillMe();
+
 
 	//Send an action request to the control class
-	virtual std::pair<Command, std::pair<int, int>> ActionRequest(Field& field);
+	virtual void ActionRequest(Field& field);
 
 	//Recieve a responce to a request and perform an action
-	virtual void Action(Command command) = 0;
+	virtual void Action(std::pair<Command, std::pair<int, int>> command); 
 
 
 private:
@@ -63,4 +72,6 @@ private:
 	std::pair<int,int> coord_;
 
 	ObjectType object_type_;
+
+	std::pair<Command, std::pair<int, int>> command_;
 };
