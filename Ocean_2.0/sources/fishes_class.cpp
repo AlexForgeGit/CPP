@@ -134,4 +134,6 @@ void Fishes::Action(std::pair<Command, std::pair<int, int>> command)
 	//If move completed, set new coordinates
 	else if (command.first == Command::MOVE_SUCCES)
 		SetCoord(command.second);
+	
+	SetCommand(std::make_pair(Command::INACTION , GetCoord()));
 }

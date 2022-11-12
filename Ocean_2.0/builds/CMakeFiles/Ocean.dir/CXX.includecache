@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+../headers/control_class.h
+iostream
+-
+vector
+-
+string
+-
+memory
+-
+field_class.h
+../headers/field_class.h
+objects_class.h
+../headers/objects_class.h
+
 ../headers/enumerations.h
 
 ../headers/female_class.h
@@ -32,6 +46,10 @@ settings.h
 fishes_class.h
 ../headers/fishes_class.h
 
+../headers/male_class.h
+gender_class.h
+../headers/gender_class.h
+
 ../headers/objects_class.h
 vector
 -
@@ -50,6 +68,12 @@ predator_class.h
 female_class.h
 ../headers/female_class.h
 
+../headers/predator_male_class.h
+predator_class.h
+../headers/predator_class.h
+male_class.h
+../headers/male_class.h
+
 ../headers/prey_class.h
 fishes_class.h
 ../headers/fishes_class.h
@@ -60,13 +84,45 @@ prey_class.h
 female_class.h
 ../headers/female_class.h
 
+../headers/prey_male_class.h
+prey_class.h
+../headers/prey_class.h
+male_class.h
+../headers/male_class.h
+
+../headers/seaweed_class.h
+objects_class.h
+../headers/objects_class.h
+settings.h
 ../headers/settings.h
 
-/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.cpp
-predator_female_class.h
-/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.h
+../headers/settings.h
 
-/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_female_class.cpp
+../headers/stone_class.h
+objects_class.h
+../headers/objects_class.h
+settings.h
+../headers/settings.h
+
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/control_class.cpp
+thread
+-
+chrono
+-
+algorithm
+-
+control_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/control_class.h
+stone_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/stone_class.h
+seaweed_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/seaweed_class.h
+prey_male_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_male_class.h
 prey_female_class.h
 /home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_female_class.h
+predator_male_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_male_class.h
+predator_female_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.h
 

@@ -24,7 +24,7 @@ void PredatorFemale::Action(std::pair<Command, std::pair<int, int>> command)
 			//Conception
 			SetGestation( GetGestation() + 1 );
 
-			//Aging age + 1, Growing hunger, check eat, check move
+			//Aging age + 1, Growing hunger, check eat
 			Fishes::Action(command);
 			break;
 
