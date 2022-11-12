@@ -142,6 +142,33 @@ Ocean/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/build
 .PHONY : Ocean/fast
 
+sources/control_class.o: sources/control_class.cpp.o
+
+.PHONY : sources/control_class.o
+
+# target to build an object file
+sources/control_class.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/control_class.cpp.o
+.PHONY : sources/control_class.cpp.o
+
+sources/control_class.i: sources/control_class.cpp.i
+
+.PHONY : sources/control_class.i
+
+# target to preprocess a source file
+sources/control_class.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/control_class.cpp.i
+.PHONY : sources/control_class.cpp.i
+
+sources/control_class.s: sources/control_class.cpp.s
+
+.PHONY : sources/control_class.s
+
+# target to generate assembly for a file
+sources/control_class.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/control_class.cpp.s
+.PHONY : sources/control_class.cpp.s
+
 sources/field_class.o: sources/field_class.cpp.o
 
 .PHONY : sources/field_class.o
@@ -195,6 +222,33 @@ sources/fishes_class.s: sources/fishes_class.cpp.s
 sources/fishes_class.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/fishes_class.cpp.s
 .PHONY : sources/fishes_class.cpp.s
+
+sources/main.o: sources/main.cpp.o
+
+.PHONY : sources/main.o
+
+# target to build an object file
+sources/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/main.cpp.o
+.PHONY : sources/main.cpp.o
+
+sources/main.i: sources/main.cpp.i
+
+.PHONY : sources/main.i
+
+# target to preprocess a source file
+sources/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/main.cpp.i
+.PHONY : sources/main.cpp.i
+
+sources/main.s: sources/main.cpp.s
+
+.PHONY : sources/main.s
+
+# target to generate assembly for a file
+sources/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/main.cpp.s
+.PHONY : sources/main.cpp.s
 
 sources/objects_class.o: sources/objects_class.cpp.o
 
@@ -394,12 +448,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Ocean"
+	@echo "... sources/control_class.o"
+	@echo "... sources/control_class.i"
+	@echo "... sources/control_class.s"
 	@echo "... sources/field_class.o"
 	@echo "... sources/field_class.i"
 	@echo "... sources/field_class.s"
 	@echo "... sources/fishes_class.o"
 	@echo "... sources/fishes_class.i"
 	@echo "... sources/fishes_class.s"
+	@echo "... sources/main.o"
+	@echo "... sources/main.i"
+	@echo "... sources/main.s"
 	@echo "... sources/objects_class.o"
 	@echo "... sources/objects_class.i"
 	@echo "... sources/objects_class.s"

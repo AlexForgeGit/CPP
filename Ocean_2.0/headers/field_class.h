@@ -30,8 +30,14 @@ public:
 	//Searches and writes to vector free_cells all free cells
 	void FindAllFreeCells();
 
+	//Availability of free cell
+	bool ThereIsFreeCell();
+
 	//Return the coordinates of a random free cell
 	std::pair<int, int> GetRandomFreeCell();
+
+	//Add coordinates from vector free cells
+	void AddFreeCell(std::pair<int , int>);
 
 	//Remove coordinates from vector free cells
 	void DeleteFreeCell(std::pair<int , int>);
@@ -40,13 +46,9 @@ private:
 
 	Field(std::size_t row_count, std::size_t column_count);
 
-	Field() = delete;
-
 	Field(const Field&) = delete;
 
 	Field& operator=(const Field&) = delete;
-
-	~Field() = default;
 
 	std::size_t row_count_;
 	std::size_t column_count_;

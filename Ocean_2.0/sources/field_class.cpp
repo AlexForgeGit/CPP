@@ -38,7 +38,7 @@ void Field::PrintField()
 			switch(column.second)
 			{
 				case ObjectType::EMPTY:
-					std::cout << "_ ";
+					std::cout << "  ";
 					break;
 
 				case ObjectType::PREY_MALE:
@@ -57,7 +57,7 @@ void Field::PrintField()
 					std::cout << "p ";
 					break;
 
-				case ObjectType::BARRIER:
+				case ObjectType::STONE:
 					std::cout << "+ ";
 					break;
 
@@ -69,6 +69,7 @@ void Field::PrintField()
 					break;
 			}
 		}
+		std::cout<<std::endl;
 	}
 }
 
@@ -104,6 +105,15 @@ void Field::FindAllFreeCells()
 	}
 }
 
+
+bool Field::ThereIsFreeCell()
+{ 
+	if (free_cells_.size())  
+		return true;
+	else
+	 	return false;
+}
+
 std::pair<int, int> Field::GetRandomFreeCell()
 {
 	//Seed with a real random value
@@ -116,6 +126,11 @@ std::pair<int, int> Field::GetRandomFreeCell()
 	return free_cells_[uniform_dist(rand)];
 }
 
+
+void Field::AddFreeCell(std::pair<int , int> coord)
+{
+	free_cells_.push_back(coord);
+}
 
 void Field::DeleteFreeCell(std::pair<int , int> coord)
 {
