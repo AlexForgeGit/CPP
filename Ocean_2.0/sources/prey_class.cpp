@@ -1,13 +1,15 @@
+#include <algorithm>
+
 #include "prey_class.h"
 
 void Prey::Behavior()
 {	
-	auto obj_type = GetMemory().find( ObjectType::SEAWEED );
+	auto obj_type = std::find_if(GetMemory().begin(), GetMemory().end(), [] (const std::pair<ObjectType, std::pair<int, int>> &object) { return object.first == ObjectType::SEAWEED;});
 
 	//If the prey saw seaweed, set command to it
 	if ( obj_type != GetMemory().end() )	
 	{	
-		SetCommand( std::make_pair( Command::EAT_IT, obj_type->second ) );
+		Eat(obj_type->second);
 	}
 	else 
 		Fishes::Behavior();

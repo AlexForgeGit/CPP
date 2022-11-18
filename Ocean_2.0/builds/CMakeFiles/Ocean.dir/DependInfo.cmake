@@ -11,10 +11,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/objects_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/objects_class.cpp.o"
   "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/predator_class.cpp.o"
   "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o"
-  "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_male_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/predator_male_class.cpp.o"
   "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/prey_class.cpp.o"
   "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_female_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o"
-  "/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_male_class.cpp" "/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles/Ocean.dir/sources/prey_male_class.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

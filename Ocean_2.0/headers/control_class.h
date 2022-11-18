@@ -20,10 +20,27 @@ public:
 	static Control& Instance(std::size_t, std::size_t);
 
 	//Create an object of a specific type
-	void AddObject(std::pair<int, int>, ObjectType);
+	template<class ClassType> void AddObject(std::pair<int, int> coord, ObjectType object_type)
+	{
+		objects_pool_.push_back(std::make_shared<ClassType>(coord));
+
+		field_.SetObjectType(coord, object_type);
+		field_.DeleteFreeCell(coord);
+	}	
 
 	//Create N objects of a specific type
-	void AddMoreObjects(ObjectType, int);
+	template<class ClassType> void AddMoreObjects(ObjectType object_type, int n)
+	{
+		for (auto i = 0; i < n; ++i)
+		{
+			if (field_.ThereIsFreeCell())
+			{
+				AddObject<ClassType>(field_.GetRandomFreeCell(), object_type);
+			}
+			else
+				break;
+		}
+	}
 
 	//Delete an object at given coordinates
 	void DeleteObject(std::pair<int, int>);
@@ -40,7 +57,7 @@ private:
 
 	Control(std::size_t row_count, std::size_t column_count) : 	field_(Field::Instance(row_count, column_count))
 	{
-		objects_list_.reserve(row_count * column_count);
+		objects_pool_.reserve(row_count * column_count);
 	}
 
 	~Control() = default;
@@ -49,7 +66,7 @@ private:
 	Control& operator=( const Control& ) = delete;
 
 
-	std::vector< std::shared_ptr<Objects> > objects_list_;
+	std::vector< std::shared_ptr<Objects> > objects_pool_;
 
 	Field& field_;
 };

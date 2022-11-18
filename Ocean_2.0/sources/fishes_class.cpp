@@ -1,4 +1,7 @@
+#include <algorithm>
+
 #include "fishes_class.h"
+
 
 bool Fishes::DieHunger()
 {
@@ -21,7 +24,7 @@ void Fishes::LookNorth(Field& field)
 			temp_coord.first--;
 		} 
 
-	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
+	memory_.push_back(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
 }
 
 void Fishes::LookEast(Field& field)
@@ -33,7 +36,7 @@ void Fishes::LookEast(Field& field)
 	if (temp_coord.second == field.GetColumnCount())
 		temp_coord.second = 0;
 
-	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
+	memory_.push_back(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
 }
 
 void Fishes::LookSouth(Field& field)
@@ -45,7 +48,7 @@ void Fishes::LookSouth(Field& field)
 	if (temp_coord.first == field.GetRowCount())
 		temp_coord.first = 0;
 
-	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
+	memory_.push_back(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
 }
 void Fishes::LookVest(Field& field)
 {
@@ -59,7 +62,7 @@ void Fishes::LookVest(Field& field)
 			temp_coord.second--;
 		}
 
-	memory_.insert(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
+	memory_.push_back(std::make_pair(field.GetObjectType(temp_coord),  temp_coord));
 }
 
 void Fishes::LookAround(Field& field)
@@ -73,6 +76,8 @@ void Fishes::LookAround(Field& field)
 	LookSouth(field);
 
 	LookVest(field);
+
+	std::random_shuffle(memory_.begin(), memory_.end());
 }
 
 
@@ -93,17 +98,20 @@ void Fishes::Pairing(std::pair<int, int> coord)
 
 void Fishes::Behavior()
 {
-	auto obj_type = GetMemory().find( ObjectType::EMPTY); 
+	auto obj_type = std::find_if(memory_.begin(), memory_.end(), [] (const std::pair<ObjectType, std::pair<int, int>> &object) { return object.first == ObjectType::EMPTY;}); 
 
 	//If the fish sees an empty slot, set command move me
-	if ( obj_type != GetMemory().end() )
+	if ( obj_type != memory_.end() )
 	{
-		SetCommand( std::make_pair( Command::MOVE_ME, obj_type->second ) );
+		Move(obj_type->second);
 	}
 }
 
 void Fishes::ActionRequest(Field& field)
 {
+
+	LookAround(field);
+
 	//Die old age check;
 	Objects::ActionRequest(field);
 
@@ -129,11 +137,14 @@ void Fishes::Action(std::pair<Command, std::pair<int, int>> command)
 
 	//If hunger is quenched, set hunger 0
 	if (command.first == Command::EAT_SUCCES)
+	{
 		SetHunger(0);
-
+	}
 	//If move completed, set new coordinates
 	else if (command.first == Command::MOVE_SUCCES)
+	{
 		SetCoord(command.second);
+	}
 	
 	SetCommand(std::make_pair(Command::INACTION , GetCoord()));
 }
