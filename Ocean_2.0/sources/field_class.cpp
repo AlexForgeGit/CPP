@@ -14,10 +14,10 @@ Field::Field(std::size_t row_count, std::size_t column_count) : row_count_(row_c
 		{
 			//Setting the coordinates and object type in each cell
 			simulation_field_[i].insert(std::make_pair(std::make_pair(i , j), ObjectType::EMPTY));
-		}
 
-	//Filling the vector pf free cells
-	FindAllFreeCells();
+			//Filling the vector pf free cells
+			free_cells_.push_back(std::make_pair(i , j));
+		}
 }
 
 
@@ -50,11 +50,11 @@ void Field::PrintField()
 					break;
 
 				case ObjectType::PREDATOR_MALE:
-					std::cout << "P ";
+					std::cout << "R ";
 					break;
 
 				case ObjectType::PREDATOR_FEMALE:
-					std::cout << "p ";
+					std::cout << "P ";
 					break;
 
 				case ObjectType::STONE:
@@ -93,19 +93,6 @@ ObjectType Field::GetObjectType(std::pair<int , int> coord)
 	return it->second;
 }
 
-void Field::FindAllFreeCells()
-{
-	for (auto &row : simulation_field_)
-	{
-		for (auto &column : row)
-		{
-			if (column.second == ObjectType::EMPTY)
-				free_cells_.push_back(column.first);
-		}
-	}
-}
-
-
 bool Field::ThereIsFreeCell()
 { 
 	if (free_cells_.size())  
@@ -120,7 +107,7 @@ std::pair<int, int> Field::GetRandomFreeCell()
 	std::random_device rand;
 
 	//Setting the range from 0 to the number of free cells
-	std::uniform_int_distribution<int> uniform_dist(0, free_cells_.size());
+	std::uniform_int_distribution<int> uniform_dist(0, free_cells_.size() - 1);
 
 	//Return random coordinates
 	return free_cells_[uniform_dist(rand)];

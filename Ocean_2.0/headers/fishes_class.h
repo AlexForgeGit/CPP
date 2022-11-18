@@ -1,6 +1,6 @@
 #pragma once
 
-#include <map>
+#include <vector>
 
 #include "objects_class.h"
 #include "settings.h"
@@ -27,7 +27,7 @@ public:
 	//Add to memory objects around me
 	void LookAround(Field& field);
 
-	std::multimap<ObjectType, std::pair<int, int>>& GetMemory() { return memory_; }
+	const std::vector<std::pair<ObjectType, std::pair<int, int>>>& GetMemory() { return memory_; }
 
 	void ClearMemory() { memory_.clear(); }
 
@@ -53,5 +53,5 @@ private:
 
 	unsigned short hunger_;
 
-	std::multimap<ObjectType, std::pair<int, int>> memory_;
+	std::vector<std::pair<ObjectType, std::pair<int, int>>> memory_;
 };

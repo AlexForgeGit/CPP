@@ -10,8 +10,4 @@ public:
 	PredatorMale(std::pair<int, int> coord) : Predator(coord, ObjectType::PREDATOR_MALE), Male() {};
 
 	virtual ~PredatorMale() {}
-
-	//Makes decisions based on the enviroment
-	virtual void Behavior() override;
-
 };

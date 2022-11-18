@@ -93,12 +93,12 @@ clean: CMakeFiles/Ocean.dir/clean
 CMakeFiles/Ocean.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target Ocean"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target Ocean"
 .PHONY : CMakeFiles/Ocean.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Ocean.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Ocean.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/C++/Projects/CPP/Ocean_2.0/builds/CMakeFiles 0
 .PHONY : CMakeFiles/Ocean.dir/rule

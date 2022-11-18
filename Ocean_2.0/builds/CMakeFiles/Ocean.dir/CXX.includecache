@@ -35,7 +35,7 @@ enumerations.h
 ../headers/enumerations.h
 
 ../headers/fishes_class.h
-map
+vector
 -
 objects_class.h
 ../headers/objects_class.h
@@ -125,4 +125,24 @@ predator_male_class.h
 /home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_male_class.h
 predator_female_class.h
 /home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.h
+
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/main.cpp
+iostream
+-
+control_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/control_class.h
+stone_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/stone_class.h
+seaweed_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/seaweed_class.h
+prey_male_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_male_class.h
+prey_female_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_female_class.h
+predator_male_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_male_class.h
+predator_female_class.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.h
+enumerations.h
+/home/alex/C++/Projects/CPP/Ocean_2.0/sources/enumerations.h
 

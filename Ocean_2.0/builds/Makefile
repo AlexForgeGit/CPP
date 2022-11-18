@@ -331,33 +331,6 @@ sources/predator_female_class.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.s
 .PHONY : sources/predator_female_class.cpp.s
 
-sources/predator_male_class.o: sources/predator_male_class.cpp.o
-
-.PHONY : sources/predator_male_class.o
-
-# target to build an object file
-sources/predator_male_class.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/predator_male_class.cpp.o
-.PHONY : sources/predator_male_class.cpp.o
-
-sources/predator_male_class.i: sources/predator_male_class.cpp.i
-
-.PHONY : sources/predator_male_class.i
-
-# target to preprocess a source file
-sources/predator_male_class.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/predator_male_class.cpp.i
-.PHONY : sources/predator_male_class.cpp.i
-
-sources/predator_male_class.s: sources/predator_male_class.cpp.s
-
-.PHONY : sources/predator_male_class.s
-
-# target to generate assembly for a file
-sources/predator_male_class.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/predator_male_class.cpp.s
-.PHONY : sources/predator_male_class.cpp.s
-
 sources/prey_class.o: sources/prey_class.cpp.o
 
 .PHONY : sources/prey_class.o
@@ -412,33 +385,6 @@ sources/prey_female_class.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.s
 .PHONY : sources/prey_female_class.cpp.s
 
-sources/prey_male_class.o: sources/prey_male_class.cpp.o
-
-.PHONY : sources/prey_male_class.o
-
-# target to build an object file
-sources/prey_male_class.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/prey_male_class.cpp.o
-.PHONY : sources/prey_male_class.cpp.o
-
-sources/prey_male_class.i: sources/prey_male_class.cpp.i
-
-.PHONY : sources/prey_male_class.i
-
-# target to preprocess a source file
-sources/prey_male_class.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/prey_male_class.cpp.i
-.PHONY : sources/prey_male_class.cpp.i
-
-sources/prey_male_class.s: sources/prey_male_class.cpp.s
-
-.PHONY : sources/prey_male_class.s
-
-# target to generate assembly for a file
-sources/prey_male_class.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ocean.dir/build.make CMakeFiles/Ocean.dir/sources/prey_male_class.cpp.s
-.PHONY : sources/prey_male_class.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -469,18 +415,12 @@ help:
 	@echo "... sources/predator_female_class.o"
 	@echo "... sources/predator_female_class.i"
 	@echo "... sources/predator_female_class.s"
-	@echo "... sources/predator_male_class.o"
-	@echo "... sources/predator_male_class.i"
-	@echo "... sources/predator_male_class.s"
 	@echo "... sources/prey_class.o"
 	@echo "... sources/prey_class.i"
 	@echo "... sources/prey_class.s"
 	@echo "... sources/prey_female_class.o"
 	@echo "... sources/prey_female_class.i"
 	@echo "... sources/prey_female_class.s"
-	@echo "... sources/prey_male_class.o"
-	@echo "... sources/prey_male_class.i"
-	@echo "... sources/prey_male_class.s"
 .PHONY : help
 
 

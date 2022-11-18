@@ -8,6 +8,7 @@
 #include <vector>
 #include <map>
 
+
 #include "enumerations.h"
 
 class Field 
@@ -27,9 +28,6 @@ public:
 	//Return cell type to field by coordinates	
 	ObjectType GetObjectType(std::pair<int , int>);
 
-	//Searches and writes to vector free_cells all free cells
-	void FindAllFreeCells();
-
 	//Availability of free cell
 	bool ThereIsFreeCell();
 
@@ -41,6 +39,8 @@ public:
 
 	//Remove coordinates from vector free cells
 	void DeleteFreeCell(std::pair<int , int>);
+
+	int GetNumberFreeCells() { return free_cells_.size();}
 
 private:
 

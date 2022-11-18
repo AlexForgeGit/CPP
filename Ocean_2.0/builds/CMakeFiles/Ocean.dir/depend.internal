@@ -34,8 +34,21 @@ CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o
 CMakeFiles/Ocean.dir/sources/main.cpp.o
  ../headers/control_class.h
  ../headers/enumerations.h
+ ../headers/female_class.h
  ../headers/field_class.h
+ ../headers/fishes_class.h
+ ../headers/gender_class.h
+ ../headers/male_class.h
  ../headers/objects_class.h
+ ../headers/predator_class.h
+ ../headers/predator_female_class.h
+ ../headers/predator_male_class.h
+ ../headers/prey_class.h
+ ../headers/prey_female_class.h
+ ../headers/prey_male_class.h
+ ../headers/seaweed_class.h
+ ../headers/settings.h
+ ../headers/stone_class.h
  /home/alex/C++/Projects/CPP/Ocean_2.0/sources/main.cpp
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o
  ../headers/enumerations.h
@@ -61,17 +74,6 @@ CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o
  ../headers/predator_female_class.h
  ../headers/settings.h
  /home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_female_class.cpp
-CMakeFiles/Ocean.dir/sources/predator_male_class.cpp.o
- ../headers/enumerations.h
- ../headers/field_class.h
- ../headers/fishes_class.h
- ../headers/gender_class.h
- ../headers/male_class.h
- ../headers/objects_class.h
- ../headers/predator_class.h
- ../headers/predator_male_class.h
- ../headers/settings.h
- /home/alex/C++/Projects/CPP/Ocean_2.0/sources/predator_male_class.cpp
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o
  ../headers/enumerations.h
  ../headers/field_class.h
@@ -91,14 +93,3 @@ CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o
  ../headers/prey_female_class.h
  ../headers/settings.h
  /home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_female_class.cpp
-CMakeFiles/Ocean.dir/sources/prey_male_class.cpp.o
- ../headers/enumerations.h
- ../headers/field_class.h
- ../headers/fishes_class.h
- ../headers/gender_class.h
- ../headers/male_class.h
- ../headers/objects_class.h
- ../headers/prey_class.h
- ../headers/prey_male_class.h
- ../headers/settings.h
- /home/alex/C++/Projects/CPP/Ocean_2.0/sources/prey_male_class.cpp
