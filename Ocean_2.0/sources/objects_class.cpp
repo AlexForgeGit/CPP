@@ -36,7 +36,11 @@ void Objects::ActionRequest(Field& field)
 {
 	//If it`s time to die, return command delete this object
 	if (DieOldAge())
-		KillMe();
+		{
+			KillMe();
+
+			GetLogs().WriteString("Object["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] die old age"); 
+		}
 }
 
 void Objects::Action(std::pair<Command, std::pair<int, int>> command)

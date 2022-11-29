@@ -11,6 +11,8 @@ void Predator::Behavior()
 	//If the prey saw seaweed, set command to it
 	if ( obj_type != GetMemory().end() )	
 	{	
+		GetLogs().WriteString("Predator["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] eat prey["
+		+ std::to_string(obj_type->second.first)+ "." + std::to_string(obj_type->second.second) + "]" ); 
 		Eat(obj_type->second);
 	}
 	else 

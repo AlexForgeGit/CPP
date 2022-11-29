@@ -8,6 +8,7 @@
 
 #include "enumerations.h"
 #include "field_class.h"
+#include "logs_class.h"
 
 class Objects
 {
@@ -19,7 +20,6 @@ public:
 	}
 
 	virtual ~Objects() {}
-
 
 	void SetAge(const unsigned short age) { age_ = age; }
 
@@ -45,6 +45,7 @@ public:
 
 	std::pair<Command, std::pair<int, int>> GetCommand() { return command_ ;}
 
+	Logs& GetLogs() { return logs_; }
 
 	void Wait();
 
@@ -74,4 +75,6 @@ private:
 	ObjectType object_type_;
 
 	std::pair<Command, std::pair<int, int>> command_;
+
+	Logs logs_;
 };

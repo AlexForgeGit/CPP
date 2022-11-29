@@ -64,12 +64,9 @@ void Control::Step()
 
 				case Command::CHILD_BIRTH:
 					//координаты свободной ячейки temp_command.second 
-					//objects_pool_.push_front(std::make_shared<!!!!>(!!!!));
-					//AddObject(temp_command.second, obj->GetObjecType());
-					//CHILD_BIRTH_SUCCES
-					obj->Action(std::make_pair(Command::INACTION , obj->GetCoord()));
+					//Тут команда создания нового объекта
+					obj->Action(std::make_pair(Command::CHILD_BIRTH_SUCCES , obj->GetCoord()));
 					break; 
-
 
 				default:
 					obj->Action(std::make_pair(Command::INACTION , temp_command.second));
@@ -80,16 +77,28 @@ void Control::Step()
 }
 
 
-void Control::Run(int n)
+void Control::Run(int max_step_number)
 {
-	for (auto i = 0; i < n; ++i)
+	PrintSimulation(0);
+
+	for (auto i = 1; i < max_step_number; ++i)
 	{
-		
+		logs_.WriteString("Step " + std::to_string(i));
+
 		Step();
 
+		PrintSimulation(i);
+
+		std::random_shuffle(objects_pool_.begin(), objects_pool_.end());
+
+	}
+}
+
+void Control::PrintSimulation(int step_number)
+{
 		field_.PrintField();
 
-		std::cout<<"Step number          - " << i << std::endl;
+		std::cout<<"Step number          - " << step_number << std::endl;
 		std::cout<<"Objects count        - " << objects_pool_.size() << std::endl;
 		std::cout<<"Number of free cells - " << field_.GetNumberFreeCells() << std::endl;	
 
@@ -97,8 +106,4 @@ void Control::Run(int n)
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
 		ClearConsole();
-
-		std::random_shuffle(objects_pool_.begin(), objects_pool_.end());
-
-	}
 }

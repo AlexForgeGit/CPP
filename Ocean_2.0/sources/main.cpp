@@ -9,23 +9,27 @@
 #include "predator_female_class.h"
 #include "enumerations.h"
 
+#include "logs_class.h"
+
 int main()
 {
 	Control& control = Control::Instance (30, 30);
 
-	control.AddMoreObjects<Stone>(ObjectType::STONE, 20);
+	control.AddMoreObjects<Stone>(40);
 
-	control.AddMoreObjects<Seaweed>(ObjectType::SEAWEED, 40);
+	control.AddMoreObjects<Seaweed>(40);
 
-	control.AddMoreObjects<PreyMale>(ObjectType::PREY_MALE, 20);
+	control.AddMoreObjects<PreyMale>(20);
 
-	control.AddMoreObjects<PreyFemale>(ObjectType::PREY_FEMALE, 20);
+	control.AddMoreObjects<PreyFemale>(20);
 
-	control.AddMoreObjects<PredatorMale>(ObjectType::PREDATOR_MALE, 10);
+	control.AddMoreObjects<PredatorMale>(10);
 	
-	control.AddMoreObjects<PredatorFemale>(ObjectType::PREDATOR_FEMALE, 10);
+	control.AddMoreObjects<PredatorFemale>(10);
 
 	control.Run(50);
+
+
 
 	return 0;
 }

@@ -7,9 +7,8 @@ class PredatorFemale : public Predator, public Female
 {
 public:
 
-	PredatorFemale(std::pair<int, int> coord) : Predator(coord, ObjectType::PREDATOR_FEMALE), Female() {};
-
-	virtual ~PredatorFemale() {}
+	PredatorFemale(std::pair<int, int> coord) : Predator(coord, ObjectType::PREDATOR_FEMALE), Female() 
+	{ GetLogs().WriteString("Female predator born by coordinates ["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "]"); };
 
 	//Makes decisions based on the enviroment
 	virtual void Behavior() override;

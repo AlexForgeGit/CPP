@@ -120,7 +120,11 @@ void Fishes::ActionRequest(Field& field)
 	{
 		//If the fish has not eaten for a long time, return command delete this object
 		if (DieHunger())
-			KillMe();
+			{
+				KillMe();
+
+				GetLogs().WriteString("Fish["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] die hunger"); 
+			}
 		
 		else
 			Behavior();
@@ -143,6 +147,8 @@ void Fishes::Action(std::pair<Command, std::pair<int, int>> command)
 	//If move completed, set new coordinates
 	else if (command.first == Command::MOVE_SUCCES)
 	{
+		GetLogs().WriteString("Fish["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] move -> [" + std::to_string(command.second.first)+ "." + std::to_string(command.second.second) + "]"); 
+		
 		SetCoord(command.second);
 	}
 	

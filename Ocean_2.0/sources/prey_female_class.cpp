@@ -10,7 +10,11 @@ void PreyFemale::Behavior()
 	{
 		//Kill a female if the birth is delayed
 		if (GetGestation() >= (Settings::MAX_DESTATIONAL_AGE * 2))
-				KillMe();
+				{
+					GetLogs().WriteString("Fish female ["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] die from pregnancy"); 
+					
+					KillMe();
+				}
 
 		//When it`s time to give birth
 		else if (GetGestation() >= Settings::MAX_DESTATIONAL_AGE)
@@ -34,7 +38,12 @@ void PreyFemale::Behavior()
 
 		//If the female sees the male, set command pairing
 		if (obj != GetMemory().end())	
-			Pairing(obj->second);
+			{
+				GetLogs().WriteString("Prey["+ std::to_string(GetCoord().first)+ "." + std::to_string(GetCoord().second) + "] pairing ["
+				+ std::to_string(obj->second.first)+ "." + std::to_string(obj->second.second) + "]" ); 
+
+				Pairing(obj->second);
+			}
 		else 
 			Prey::Behavior();
 	}
