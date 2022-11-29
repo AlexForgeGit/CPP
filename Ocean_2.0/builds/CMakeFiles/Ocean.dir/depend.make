@@ -7,6 +7,7 @@ CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/female_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/fishes_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/gender_class.h
+CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/male_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/predator_class.h
@@ -27,6 +28,7 @@ CMakeFiles/Ocean.dir/sources/field_class.cpp.o: ../sources/field_class.cpp
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/enumerations.h
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/fishes_class.h
+CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../headers/settings.h
 CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../sources/fishes_class.cpp
@@ -37,6 +39,7 @@ CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/female_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/fishes_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/gender_class.h
+CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/male_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/predator_class.h
@@ -52,12 +55,14 @@ CMakeFiles/Ocean.dir/sources/main.cpp.o: ../sources/main.cpp
 
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o: ../headers/enumerations.h
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o: ../headers/field_class.h
+CMakeFiles/Ocean.dir/sources/objects_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o: ../sources/objects_class.cpp
 
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/enumerations.h
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/fishes_class.h
+CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/predator_class.h
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o: ../headers/settings.h
@@ -68,6 +73,7 @@ CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/female_clas
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/fishes_class.h
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/gender_class.h
+CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/predator_class.h
 CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../headers/predator_female_class.h
@@ -77,6 +83,7 @@ CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o: ../sources/predator_fe
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/enumerations.h
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/fishes_class.h
+CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/prey_class.h
 CMakeFiles/Ocean.dir/sources/prey_class.cpp.o: ../headers/settings.h
@@ -87,6 +94,7 @@ CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/female_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/fishes_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/gender_class.h
+CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/logs_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/objects_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/prey_class.h
 CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o: ../headers/prey_female_class.h

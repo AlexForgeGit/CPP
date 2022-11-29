@@ -8,6 +8,7 @@ CMakeFiles/Ocean.dir/sources/control_class.cpp.o
  ../headers/field_class.h
  ../headers/fishes_class.h
  ../headers/gender_class.h
+ ../headers/logs_class.h
  ../headers/male_class.h
  ../headers/objects_class.h
  ../headers/predator_class.h
@@ -28,6 +29,7 @@ CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o
  ../headers/enumerations.h
  ../headers/field_class.h
  ../headers/fishes_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  ../headers/settings.h
  /home/alex/C++/Projects/CPP/Ocean_2.0/sources/fishes_class.cpp
@@ -38,6 +40,7 @@ CMakeFiles/Ocean.dir/sources/main.cpp.o
  ../headers/field_class.h
  ../headers/fishes_class.h
  ../headers/gender_class.h
+ ../headers/logs_class.h
  ../headers/male_class.h
  ../headers/objects_class.h
  ../headers/predator_class.h
@@ -53,12 +56,14 @@ CMakeFiles/Ocean.dir/sources/main.cpp.o
 CMakeFiles/Ocean.dir/sources/objects_class.cpp.o
  ../headers/enumerations.h
  ../headers/field_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  /home/alex/C++/Projects/CPP/Ocean_2.0/sources/objects_class.cpp
 CMakeFiles/Ocean.dir/sources/predator_class.cpp.o
  ../headers/enumerations.h
  ../headers/field_class.h
  ../headers/fishes_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  ../headers/predator_class.h
  ../headers/settings.h
@@ -69,6 +74,7 @@ CMakeFiles/Ocean.dir/sources/predator_female_class.cpp.o
  ../headers/field_class.h
  ../headers/fishes_class.h
  ../headers/gender_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  ../headers/predator_class.h
  ../headers/predator_female_class.h
@@ -78,6 +84,7 @@ CMakeFiles/Ocean.dir/sources/prey_class.cpp.o
  ../headers/enumerations.h
  ../headers/field_class.h
  ../headers/fishes_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  ../headers/prey_class.h
  ../headers/settings.h
@@ -88,6 +95,7 @@ CMakeFiles/Ocean.dir/sources/prey_female_class.cpp.o
  ../headers/field_class.h
  ../headers/fishes_class.h
  ../headers/gender_class.h
+ ../headers/logs_class.h
  ../headers/objects_class.h
  ../headers/prey_class.h
  ../headers/prey_female_class.h
