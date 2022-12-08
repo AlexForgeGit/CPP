@@ -3,17 +3,31 @@
 #include <algorithm>
 
 #include "control_class.h"
-#include "stone_class.h"
-#include "seaweed_class.h"
-#include "prey_male_class.h"
-#include "prey_female_class.h"
-#include "predator_male_class.h"
-#include "predator_female_class.h"
+#include "factories.h"
 
 Control& Control::Instance(std::size_t row_count, std::size_t column_count)
 {
 	static Control control(row_count, column_count);
 	return control;
+}
+
+void Control::AddObjects(ObjectsFactory& obj_factory, int n) 
+{
+	for (auto i = 0; i < n; ++i) 
+	{
+		if (field_.ThereIsFreeCell()) 
+		{
+			auto coord = field_.GetRandomFreeCell();
+
+			//Add object created by factory method to vector
+			objects_pool_.push_back(obj_factory.CreateObject(coord));
+
+			field_.SetObjectType(coord, objects_pool_[objects_pool_.size() - 1]->GetObjecType());
+			field_.DeleteFreeCell(coord);
+		}
+		else
+			break;
+	}
 }
 
 void Control::DeleteObject(std::pair<int, int> coord)

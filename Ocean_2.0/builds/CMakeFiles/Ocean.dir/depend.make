@@ -3,6 +3,7 @@
 
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/control_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/enumerations.h
+CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/factories.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/female_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/control_class.cpp.o: ../headers/fishes_class.h
@@ -35,6 +36,7 @@ CMakeFiles/Ocean.dir/sources/fishes_class.cpp.o: ../sources/fishes_class.cpp
 
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/control_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/enumerations.h
+CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/factories.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/female_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/field_class.h
 CMakeFiles/Ocean.dir/sources/main.cpp.o: ../headers/fishes_class.h

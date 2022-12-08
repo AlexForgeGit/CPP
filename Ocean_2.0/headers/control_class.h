@@ -11,6 +11,7 @@
 
 #include "field_class.h"
 #include "objects_class.h"
+#include "factories.h"
 #include "logs_class.h"
 
 class Control
@@ -19,11 +20,8 @@ public:
 
 	static Control& Instance(std::size_t, std::size_t);
 
-	//Create an object of a specific type
-	template<class ClassType> void AddObject(std::pair<int, int> coord);
-
 	//Create N objects of a specific type
-	template<class ClassType> void AddMoreObjects(int n);
+	void AddObjects(ObjectsFactory& obj_factory, int n = 1);
 
 	//Delete an object at given coordinates
 	void DeleteObject(std::pair<int, int>);
@@ -59,27 +57,3 @@ private:
 
 	Logs logs_;
 };
-
-template<class ClassType> 
-void Control::AddObject(std::pair<int, int> coord)
-{
-	objects_pool_.push_back(std::make_shared<ClassType>(coord));
-
-	field_.SetObjectType(coord, objects_pool_[objects_pool_.size() - 1]->GetObjecType());
-	field_.DeleteFreeCell(coord);
-}	
-
-
-template<class ClassType> 
-void Control::AddMoreObjects(int n)
-{
-	for (auto i = 0; i < n; ++i)
-	{
-		if (field_.ThereIsFreeCell())
-		{
-			AddObject<ClassType>(field_.GetRandomFreeCell());
-		}
-		else
-			break;
-	}
-}
